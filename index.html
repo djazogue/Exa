@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Permite que la página se adapte a celulares y computadoras -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap local (funciona sin Internet) -->
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap-icons.min.css" rel="stylesheet">
+         <script src="bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="estilos.css">
+        <title>GAMER FEST ESPE 2026</title>
+    </head>
+
+    <body>
+
+        <!-- Encabezado del sitio web -->
+        <header class="encabezado">
+
+            <!-- Logo y nombre del evento -->
+            <div class="logo-container">
+                <img src="imagenes/logo.png" alt="Logotipo de GAMER FEST ESPE 2026" class="logo-evento">
+                <span class="nombre-evento">GAMER FEST ESPE 2026</span>
+            </div>
+
+            <!-- Menú de navegación -->
+            <nav class="menu">
+
+                <!-- Control para abrir y cerrar el menú en celulares -->
+                <input type="checkbox" id="menu-toggle" aria-label="Abrir o cerrar el menú">
+
+                <!-- Botón hamburguesa; funciona sin JavaScript -->
+                <label for="menu-toggle" class="menu-hamburguesa">
+                    ☰
+                </label>
+
+                <!-- Enlaces a las secciones de la página -->
+                <div class="enlaces-menu">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#categorias">Categorías</a>
+                    <a href="#premios">Premios</a>
+                    <a href="#auspiciantes">Auspiciantes</a>
+                    <a href="#ubicacion">Ubicación</a>
+                    <a href="#inscripcion" class="boton-inscripcion">
+                        Inscríbete ya
+                    </a>
+                </div>
+
+            </nav>
+
+        </header>
+
+        <!-- Contenido principal de la página -->
+        <main id="inicio">
+            <!-- Sección de banner del evento -->
+            <section class="banner">
+
+                <!-- Contenedor Bootstrap para organizar el contenido -->
+                <div class="container py-4">
+                    <div class="row align-items-center g-4">
+
+                        <!-- Columna del texto del banner -->
+                        <div class="col-md-6 texto-banner">
+
+                            <p>¡Prepárate para jugar!</p>
+
+                            <h1>GAMER FEST ESPE 2026</h1>
+
+                            <p>
+                                Vive la emoción de los videojuegos,
+                                demuestra tus habilidades y comparte
+                                una experiencia gamer inolvidable.
+                            </p>
+
+                            <!-- Información principal del evento -->
+                            <p>
+                                Fecha: Por definir
+                                <br>
+                                Horario: Por definir
+                                <br>
+                                Lugar: Campus Belisario Quevedo - ESPE
+                            </p>
+
+                            <!-- Botón que lleva a la sección de inscripción -->
+                            <a href="#inscripcion" class="boton-inscripcion">
+                                Inscríbete ahora
+                            </a>
+
+                        </div>
+
+                        <!-- Columna de la imagen del banner -->
+                        <div class="col-md-6">
+
+                            <div class="imagen-banner">
+                                <!-- Imagen provisional para reemplazar después -->
+                                <div class="imagen-placeholder">
+                                    <img src="imagenes/banner.jpg" alt="Banner promocional del Gamer Fest ESPE 2026" class="banner-evento">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+
+        <!-- Sección de categorías de videojuegos -->
+        <section id="categorias" class="categorias">
+
+            <div class="container py-4">
+
+                <!-- Título y descripción de la sección -->
+                <div class="titulo-categorias">
+                    <h2>Categorías de videojuegos</h2>
+                    <p>
+                        Elige tu desafío, demuestra tus habilidades
+                        y disfruta del GAMER FEST ESPE 2026.
+                    </p>
+                </div>
+
+                <!-- Fila que contiene las cuatro tarjetas -->
+                <div class="row g-4 mt-3">
+
+                    <!-- Categoría 1: Shooters y Battle Royale -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="categoria">
+
+                            <div class="imagen-categoria">
+                                <img src="imagenes/pcategoria.jpg" alt="Jugadores en una partida de disparos en primera persona" class="categoria-uno">
+                            </div>
+
+                            <h3>Shooters y Battle Royale</h3>
+
+                            <p>
+                                Demuestra tu puntería, estrategia
+                                y habilidades de supervivencia.
+                            </p>
+
+                            <p><strong>Modalidad:</strong> equipos de 4 jugadores</p>
+
+                            <!-- Abre la ventana con la lista de juegos -->
+                            <button type="button" class="boton-categoria"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modal-shooters">
+                                LISTA DE JUEGOS
+                            </button>
+
+                        </article>
+                    </div>
+
+                    <!-- Categoría 2: Estrategia y juegos de mesa -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="categoria">
+
+                            <div class="imagen-categoria">
+                                <img src="imagenes/mcategoria.jpg" alt="Tablero de ajedrez, juego de estrategia" class="categoria-dos">
+                            </div>
+
+                            <h3>Estrategia y juegos de mesa</h3>
+
+                            <p>
+                                Pon a prueba tu lógica, planificación
+                                y capacidad para tomar decisiones.
+                            </p>
+
+                            <p><strong>Modalidad:</strong> individual, 1 contra 1</p>
+
+                            <button type="button" class="boton-categoria"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modal-estrategia">
+                                LISTA DE JUEGOS
+                            </button>
+
+                        </article>
+                    </div>
+
+                    <!-- Categoría 3: Juegos de pelea -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="categoria">
+
+                            <div class="imagen-categoria">
+                                <img src="imagenes/fcategoria.jpg" alt="Escena de un juego de peleas entre dos personajes" class="categoria-tres">
+                            </div>
+
+                            <h3>Juegos de pelea</h3>
+
+                            <p>
+                                Enfréntate a tus rivales y demuestra
+                                tus reflejos y dominio de combate.
+                            </p>
+
+                            <p><strong>Modalidad:</strong> individual, eliminación directa</p>
+
+                            <button type="button" class="boton-categoria"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modal-pelea">
+                                LISTA DE JUEGOS
+                            </button>
+
+                        </article>
+                    </div>
+
+                    <!-- Categoría 4: Fútbol virtual -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="categoria">
+
+                            <div class="imagen-categoria">
+                                <img src="imagenes/scategoria.jpg" alt="Partido de fútbol virtual en un videojuego" class="categoria-cuatro">
+                            </div>
+
+                            <h3>Fútbol</h3>
+
+                            <p>
+                                Lleva a tu equipo a la victoria con
+                                estrategia, precisión y habilidad.
+                            </p>
+
+                            <p><strong>Modalidad:</strong> individual, 1 contra 1</p>
+
+                            <button type="button" class="boton-categoria"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modal-futbol">
+                                LISTA DE JUEGOS
+                            </button>
+
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- VENTANAS (MODALES) CON LA LISTA DE JUEGOS
+                 Van fuera de las tarjetas; cada una se abre con su botón -->
+
+            <div class="modal fade modal-juegos" id="modal-shooters" tabindex="-1"
+                 aria-labelledby="titulo-shooters" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title h5" id="titulo-shooters">Shooters y Battle Royale</h2>
+                            <button type="button" class="btn-close btn-close-white"
+                                    data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="lista-juegos">
+                                <li>Valorant</li>
+                                <li>Counter-Strike 2</li>
+                                <li>Fortnite</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade modal-juegos" id="modal-estrategia" tabindex="-1"
+                 aria-labelledby="titulo-estrategia" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title h5" id="titulo-estrategia">Estrategia y juegos de mesa</h2>
+                            <button type="button" class="btn-close btn-close-white"
+                                    data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="lista-juegos">
+                                <li>Ajedrez</li>
+                                <li>UNO</li>
+                                <li>Damas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade modal-juegos" id="modal-pelea" tabindex="-1"
+                 aria-labelledby="titulo-pelea" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title h5" id="titulo-pelea">Juegos de pelea</h2>
+                            <button type="button" class="btn-close btn-close-white"
+                                    data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="lista-juegos">
+                                <li>Street Fighter 6</li>
+                                <li>Tekken 8</li>
+                                <li>Mortal Kombat 1</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade modal-juegos" id="modal-futbol" tabindex="-1"
+                 aria-labelledby="titulo-futbol" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title h5" id="titulo-futbol">Fútbol virtual</h2>
+                            <button type="button" class="btn-close btn-close-white"
+                                    data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="lista-juegos">
+                                <li>EA SPORTS FC</li>
+                                <li>eFootball</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+                <!-- Sección de premios del evento -->
+        <section id="premios" class="premios">
+
+            <div class="container py-4">
+
+                <!-- Título y descripción de la sección -->
+                <div class="titulo-premios">
+                    <h2>Premios GAMER FEST ESPE 2026</h2>
+
+                    <p>
+                        Compite, demuestra tus habilidades
+                        y gana increíbles premios gamer.
+                    </p>
+                </div>
+
+                <!-- Fila que contiene las tres tarjetas de premios -->
+                <div class="row g-4 mt-3">
+
+                    <!-- Premio para el primer lugar -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <article class="premio">
+
+                            <!-- Imagen del premio -->
+                            <img src="imagenes/recompensau.jpg" class="img-fluid primer-lugar"
+                                alt="Billetes de dólar sobre fondo oscuro con luz roja, premio en efectivo">
+
+                            <h3>Primer lugar</h3>
+
+                            <h4>$75 en efectivo</h4>
+
+                            <p>
+                                Premio económico para reconocer
+                                al campeón de cada categoría.
+                            </p>
+
+                        </article>
+                    </div>
+
+                    <!-- Premio para el segundo lugar -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <article class="premio">
+
+                            <div class="imagen-premio">
+                            <img src="imagenes/recompensat.jpg" class="img-fluid primer-lugar"
+                                alt="Teclado y audífonos gamer, premio de segundo lugar">
+                            </div>
+
+                            <h3>Segundo lugar</h3>
+
+                            <h4>Teclado gamer + audífonos</h4>
+
+                            <p>
+                                Un combo de accesorios gamer
+                                para seguir disfrutando del juego.
+                            </p>
+
+                        </article>
+                    </div>
+
+                    <!-- Premio para el tercer lugar -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <article class="premio">
+
+                            <div class="imagen-premio">
+                            <img src="imagenes/recompensad.jpg" class="img-fluid primer-lugar"
+                                alt="Mouse gamer y mousepad, premio de tercer lugar">
+                            </div>
+
+                            <h3>Tercer lugar</h3>
+
+                            <h4>Mouse gamer + mousepad</h4>
+
+                            <p>
+                                Un kit práctico para mejorar
+                                la experiencia de juego.
+                            </p>
+
+                        </article>
+                    </div>
+
+                </div>
+
+                <!-- Condiciones básicas de los premios -->
+                <div class="condiciones-premios">
+                    <h3>Condiciones de participación</h3>
+                    <ul>
+                        <li>Los premios se otorgarán a los ganadores de cada categoría.</li>
+                        <li>Para optar por ellos, es requisito haber completado la inscripción previa.</li>
+                        <li>La entrega de premios se realizará al finalizar el evento.</li>
+                    </ul>
+                </div>
+
+                <!-- Aviso sobre los premios -->
+                <p class="aviso-premios">
+                    * Premios demostrativos, sujetos a confirmación por parte de la
+                    organización y de los auspiciantes.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Sección de auspiciantes -->
+        <section id="auspiciantes" class="auspiciantes">
+
+            <div class="container py-4">
+
+                <!-- Título y descripción de la sección -->
+                <div class="titulo-auspiciantes">
+                    <h2>Nuestros auspiciantes</h2>
+
+                    <p>
+                        Gracias a quienes apoyan la comunidad gamer
+                        y hacen posible GAMER FEST ESPE 2026.
+                    </p>
+                </div>
+
+                <!-- Fila que contiene las tarjetas de auspiciantes -->
+                <div class="row g-4 mt-3">
+
+                    <!-- Auspiciante 1: servicio de internet -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="auspiciante">
+
+                            <!-- Espacio para el logo -->
+                            <div class="logo-auspiciante">
+                                <img src="imagenes/logo-speedy.png" class="img-fluid logo-auspiciante"
+                                alt="Logotipo simulado de Speedy Internet">
+                            </div>
+
+                            <h3>Speedy Internet</h3>
+
+                            <p>
+                                Conectividad para disfrutar
+                                de una experiencia gamer.
+                            </p>
+
+                            <span class="tipo-auspiciante">
+                                Internet y conectividad
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <!-- Auspiciante 2: tienda gamer -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="auspiciante">
+
+                            <!-- Espacio para el logo -->
+                            <div class="logo-auspiciante">
+                            <img src="imagenes/logo-dark.jpg" class="img-fluid logo-auspiciante"
+                                alt="Logotipo simulado de Dark World Gaming Store">
+                            </div>
+
+                            <h3>Dark World Gaming Store</h3>
+
+                            <p>
+                                Accesorios y productos para
+                                los amantes de los videojuegos.
+                            </p>
+
+                            <span class="tipo-auspiciante">
+                                Tecnología gamer
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <!-- Auspiciante 3: marca ficticia -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="auspiciante">
+
+                            <!-- Espacio para el logo -->
+                            <div class="logo-auspiciante">  
+                            <img src="imagenes/logo-amper.png" class="img-fluid logo-auspiciante"
+                                alt="Logotipo simulado de Amper">
+                            </div>
+
+                            <h3>Amper</h3>
+
+                            <p>
+                                Energía y diversión para acompañar
+                                cada desafío del torneo.
+                            </p>
+
+                            <span class="tipo-auspiciante">
+                                Bebidas energéticas
+                            </span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Aviso: auspiciantes simulados -->
+                <p class="aviso-auspiciantes">
+                    * Auspiciantes simulados con fines académicos. Los nombres y logotipos
+                    son ficticios y no corresponden a empresas reales.
+                </p>
+
+            </div>
+
+        </section>
+
+                <!-- Sección de ubicación del evento -->
+        <section id="ubicacion" class="ubicacion">
+
+            <div class="container py-4">
+
+                <!-- Título y descripción de la sección -->
+                <div class="titulo-ubicacion">
+                    <h2>¿Dónde se realizará el evento?</h2>
+
+                    <p>
+                        Te esperamos en GAMER FEST ESPE 2026.
+                        ¡Prepárate para vivir la experiencia gamer!
+                    </p>
+                </div>
+
+                <!-- Contenido de la ubicación -->
+                <div class="row g-4 mt-3">
+
+                    <!-- Información del lugar
+                         En celular va primero; en escritorio pasa a la derecha -->
+                    <div class="col-12 col-lg-5 order-lg-2">
+                        <div class="informacion-ubicacion">
+
+                            <h3>Universidad de las Fuerzas Armadas ESPE</h3>
+
+                            <p>
+                                <strong>Sede:</strong>
+                                Extensión Belisario Quevedo
+                            </p>
+
+                            <p>
+                                <strong>Ciudad:</strong>
+                                Latacunga, Cotopaxi
+                            </p>
+
+                            <p>
+                                <strong>Fecha:</strong>
+                                sábado 15 de mayo de 2026
+                            </p>
+
+                            <p>
+                                <strong>Horario:</strong>
+                                09:00 a 18:00
+                            </p>
+
+                            <!-- Enlace para consultar cómo llegar (respaldo si el mapa no carga) -->
+                            <a
+                                href="https://www.google.com/maps/search/?api=1&query=Universidad+de+las+Fuerzas+Armadas+ESPE+Extensi%C3%B3n+Belisario+Quevedo"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="boton-ubicacion">
+                                CÓMO LLEGAR
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <!-- Mapa de Google Maps
+                         En celular va después del texto; en escritorio pasa a la izquierda -->
+                    <div class="col-12 col-lg-7 order-lg-1">
+                        <div class="mapa-ubicacion">
+
+                        <iframe title="Mapa de ubicación de la ESPE, extensión Belisario Quevedo" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.211690849158!2d-78.58551926577479!3d-0.9991445730277775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d4639e7c398d3f%3A0xc4999bdc40abfc48!2sUniversidad%20De%20Las%20Fuerzas%20Armadas%20ESPE%20Extensi%C3%B3n%20Belisario%20Quevedo!5e0!3m2!1ses!2sec!4v1793266814059!5m2!1ses!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+                            
+                        </iframe>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Sección de inscripción -->
+        <section id="inscripcion" class="inscripcion">
+
+            <div class="container py-4">
+
+                <!-- Título y descripción de la sección -->
+                <div class="titulo-inscripcion">
+                    <h2>Inscríbete en GAMER FEST ESPE 2026</h2>
+
+                    <p>
+                        Participa, demuestra tus habilidades
+                        y forma parte de la experiencia gamer.
+                    </p>
+                </div>
+
+                <!-- Formulario de inscripción -->
+                <div class="formulario-inscripcion">
+
+            <form action="#confirmacion">
+                <div class="row g-3">
+
+                    <div class="col-12 col-lg-6">
+
+                    </div>
+
+                    <!-- Más campos: copia el bloque col-12 col-lg-6 -->
+
+                    <div class="col-12">
+                        <button type="submit" class="boton-inscripcion">Enviar inscripción</button>
+                    </div>
+
+                </div>
+            </form>
+
+            <!-- Confirmación de demostración -->
+            <div id="confirmacion" class="alert-confirmacion">
+                Inscripción de demostración registrada. No se guardó ni envió ningún dato.
+            </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        </main>
+
+        <!-- Pie de página del sitio web -->
+        <footer class="pie-pagina">
+
+            <div class="container py-4">
+
+                <!-- Fila con las columnas del pie de página -->
+                <div class="row g-4 justify-content-lg-between">
+
+                    <!-- Información del evento -->
+                    <div class="col-12 col-lg-5">
+                        <div class="informacion-footer">
+
+                            <h2>GAMER FEST ESPE 2026</h2>
+
+                            <p>
+                                GAMER FEST ESPE 2026 es un evento universitario
+                                dedicado a la competencia, la tecnología
+                                y la pasión por los videojuegos.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- Redes sociales (enlaces demostrativos) -->
+                    <div class="col-12 col-lg-4">
+                        <div class="redes-footer">
+
+                            <h3>Síguenos</h3>
+
+                            <ul>
+                                <li>
+                                    <a class="red-social red-instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                                        <i class="bi bi-instagram" aria-hidden="true"></i> Instagram
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="red-social red-facebook" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                                        <i class="bi bi-facebook" aria-hidden="true"></i> Facebook
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="red-social red-tiktok" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">
+                                        <i class="bi bi-tiktok" aria-hidden="true"></i> TikTok
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <p class="aviso-redes">Enlaces demostrativos.</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Línea divisoria -->
+                <hr class="linea-footer">
+
+                <!-- Derechos reservados -->
+                <div class="derechos-footer">
+
+                    <p>
+                        © 2026 GAMER FEST ESPE.
+                        Todos los derechos reservados.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+
+    </body>
+</html>

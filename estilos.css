@@ -1,0 +1,925 @@
+/* Colores principales: se cambian aquí y se actualizan en toda la página */
+:root {
+    --negro: #0a0a0a;
+    --negro-suave: #141012;
+    --vino: #8e1b32;
+    --vino-hover: #a8203b;
+    --vino-claro: #e0445f;
+    --texto: #f2f2f2;
+}
+
+/* Estilos generales de la página*/
+body {
+    margin: 0;
+    font-family: "Bahnschrift", "Consolas", "Courier New", monospace;
+    background-color: var(--negro);
+    color: var(--texto);
+}
+
+/* Encabezado: contiene el logo y el menú */
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--negro-suave);
+    border-bottom: 2px solid var(--vino);
+}
+
+/* Agrupa el logo y el nombre del evento */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+/* Logo del evento */
+.logo-evento {
+    height: 55px;
+    width: auto;
+}
+/* Cuadro provisional para el logo */
+.logo-placeholder {
+    width: 55px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--vino-claro);
+    color: var(--vino-claro);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Nombre del evento */
+.nombre-evento {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Contenedor del menú de navegación */
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+/* Checkbox que controla el menú: oculto a la vista pero accesible con teclado */
+#menu-toggle {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Botón hamburguesa: se mostrará en celulares */
+.menu-hamburguesa {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--vino-claro);
+}
+
+/* Borde visible cuando se llega al botón con la tecla Tab */
+#menu-toggle:focus-visible + .menu-hamburguesa {
+    outline: 2px solid var(--vino-claro);
+}
+
+/* Organiza los enlaces horizontalmente */
+.enlaces-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Estilos de los enlaces */
+.enlaces-menu a {
+    color: var(--texto);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+/* Cambia el color al pasar el cursor por los enlaces */
+.enlaces-menu a:hover {
+    color: var(--vino-claro);
+}
+
+/* Estilo del botón de inscripción */
+.boton-inscripcion {
+    background-color: var(--vino);
+    color: #ffffff !important;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.boton-inscripcion:hover {
+    background-color: var(--vino-hover);
+    color: #ffffff !important;
+}
+
+/* Adaptación del menú para pantallas pequeñas */
+@media (max-width: 991px) {
+
+    /* Muestra el botón hamburguesa */
+    .menu-hamburguesa {
+        display: block;
+    }
+
+    /* Coloca los enlaces en un menú vertical oculto */
+    .enlaces-menu {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background-color: var(--negro-suave);
+        border-bottom: 2px solid var(--vino);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        z-index: 1000;
+    }
+
+    /* Muestra el menú cuando se activa el checkbox */
+    #menu-toggle:checked ~ .enlaces-menu {
+        display: flex;
+    }
+}
+/* Sección principal del banner */
+.banner {
+    padding: 40px 0;
+    background-color: var(--negro);
+}
+
+/* Organiza y separa los textos del banner */
+.texto-banner {
+    padding: 20px;
+}
+
+/* Texto pequeño que aparece sobre el título */
+.texto-banner p:first-child {
+    color: var(--vino-claro);
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Título principal del evento */
+.texto-banner h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Textos descriptivos del evento */
+.texto-banner p {
+    color: #c9c9c9;
+    line-height: 1.7;
+}
+
+/* Botón que dirige a la inscripción */
+.texto-banner .boton-inscripcion {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+/* Contenedor de la imagen del banner */
+.banner-evento {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: right center;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 14px rgba(224, 68, 95, 0.35);
+}
+
+/* Ajustes para celulares */
+@media (max-width: 767px) {
+
+    /* Reduce el tamaño del título en pantallas pequeñas */
+    .texto-banner h1 {
+        font-size: 32px;
+    }
+
+    /* Reduce la altura del cuadro de imagen */
+    .banner-evento {
+        max-height: 420px;
+    }
+
+    /* Centra el contenido del banner en celulares */
+    .texto-banner {
+        text-align: center;
+    }
+}
+/* Los botones de categoría ahora son <button>: heredan tu tipografía */
+.boton-categoria {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* Ventana de la lista de juegos */
+.modal-juegos .modal-content {
+    background-color: var(--negro-suave);
+    color: var(--texto);
+    border: 2px solid var(--vino);
+}
+
+.modal-juegos .modal-header {
+    border-bottom: 1px solid var(--vino);
+}
+
+.lista-juegos {
+    margin: 0;
+    padding-left: 1.2rem;
+    line-height: 1.9;
+}
+/* Sección de categorías de videojuegos */
+.categorias {
+    padding: 30px 0;
+    background-color: var(--negro-suave);
+}
+
+/* Título y descripción de la sección */
+.titulo-categorias {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Título principal de las categorías */
+.titulo-categorias h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Descripción que aparece debajo del título */
+.titulo-categorias p {
+    color: #c9c9c9;
+    line-height: 1.6;
+}
+
+/* Tarjeta individual de cada categoría */
+.categoria {
+    height: 100%;
+    padding: 18px;
+    background-color: var(--negro);
+    border: 1px solid var(--vino);
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.categoria-uno,
+.categoria-dos,
+.categoria-tres,
+.categoria-cuatro {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+/* Nombre de cada categoría */
+.categoria h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Descripciones y modalidad */
+.categoria p {
+    color: #c9c9c9;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* Resalta la palabra "Modalidad" */
+.categoria p strong {
+    color: var(--vino-claro);
+}
+
+/* Botón que abre la lista de juegos (ahora es un <button>) */
+.boton-categoria {
+    display: inline-block;
+    align-self: center;
+    margin-top: auto;
+    padding: 9px 12px;
+    background-color: transparent;
+    border: 1px solid var(--vino-claro);
+    border-radius: 5px;
+    color: var(--vino-claro);
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Efecto visual al pasar el cursor por el botón */
+.boton-categoria:hover {
+    background-color: var(--vino);
+    border-color: var(--vino);
+    color: #ffffff;
+}
+
+/* Ventana (modal) con la lista de juegos */
+.modal-juegos .modal-content {
+    background-color: var(--negro-suave);
+    color: var(--texto);
+    border: 2px solid var(--vino);
+}
+
+.modal-juegos .modal-header {
+    border-bottom: 1px solid var(--vino);
+}
+
+.lista-juegos {
+    margin: 0;
+    padding-left: 1.2rem;
+    line-height: 1.9;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767px) {
+
+    /* Reduce el tamaño del título en celulares */
+    .titulo-categorias h2 {
+        font-size: 27px;
+    }
+
+    /* Reduce la altura de las imágenes provisionales */
+    .imagen-categoria {
+        min-height: 180px;
+    }
+
+    /* Reduce el espacio interior de las tarjetas */
+    .categoria {
+        padding: 15px;
+    }
+}
+/* Sección de premios */
+.premios {
+    padding: 30px 0;
+    background-color: var(--negro);
+}
+
+/* Título y descripción de la sección */
+.titulo-premios {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Título principal de los premios */
+.titulo-premios h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Descripción debajo del título */
+.titulo-premios p {
+    color: #c9c9c9;
+    line-height: 1.6;
+}
+
+/* Tarjeta individual de cada premio */
+.premio {
+    height: 100%;
+    padding: 20px;
+    background-color: var(--negro-suave);
+    border: 1px solid var(--vino);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.primer-lugar,
+.segundo-lugar,
+.tercer-lugar {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+/* Nombre del puesto */
+.premio h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Nombre o valor del premio */
+.premio h4 {
+    color: var(--vino-claro);
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Descripción de cada premio */
+.premio p {
+    color: #c9c9c9;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Condiciones de participación */
+.condiciones-premios {
+    max-width: 700px;
+    margin: 30px auto 0;
+    padding: 20px;
+    background-color: var(--negro-suave);
+    border: 1px solid var(--vino);
+    border-left: 4px solid var(--vino);
+    border-radius: 10px;
+}
+
+/* Título de las condiciones */
+.condiciones-premios h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: var(--vino-claro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Lista de condiciones */
+.condiciones-premios ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: #c9c9c9;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Aviso de que los premios son demostrativos */
+.aviso-premios {
+    margin-top: 25px;
+    color: #c9c9c9;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767px) {
+
+    /* Reduce el tamaño del título en celulares */
+    .titulo-premios h2 {
+        font-size: 27px;
+    }
+
+    /* Ajusta el espacio interior de las tarjetas */
+    .premio {
+        padding: 15px;
+    }
+
+    /* Ajusta la altura de las imágenes */
+    .primer-lugar,
+    .segundo-lugar,
+    .tercer-lugar {
+        height: 180px;
+    }
+
+    /* Ajusta el espacio de las condiciones */
+    .condiciones-premios {
+        padding: 15px;
+    }
+}
+/* Sección de auspiciantes */
+.auspiciantes {
+    padding: 30px 0;
+    background-color: var(--negro-suave);
+}
+
+/* Título y descripción de la sección */
+.titulo-auspiciantes {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Título principal */
+.titulo-auspiciantes h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Descripción de los auspiciantes */
+.titulo-auspiciantes p {
+    color: #c9c9c9;
+    line-height: 1.6;
+}
+
+/* Tarjeta individual del auspiciante */
+.auspiciante {
+    height: 100%;
+    padding: 20px;
+    background-color: var(--negro);
+    border: 1px solid var(--vino);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Espacio provisional para el logo */
+.logo-auspiciante {
+    display: block;
+    width: 100%;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 18px;
+}
+
+/* Nombre del auspiciante */
+.auspiciante h3 {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Descripción del auspiciante */
+.auspiciante p {
+    color: #c9c9c9;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Tipo de empresa o servicio */
+.tipo-auspiciante {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 7px 10px;
+    border: 1px solid var(--vino-claro);
+    border-radius: 5px;
+    color: var(--vino-claro);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Aviso de auspiciantes simulados */
+.aviso-auspiciantes {
+    margin-top: 25px;
+    color: #c9c9c9;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767px) {
+
+    /* Reduce el tamaño del título */
+    .titulo-auspiciantes h2 {
+        font-size: 27px;
+    }
+
+    /* Reduce el espacio interior de las tarjetas */
+    .auspiciante {
+        padding: 15px;
+    }
+
+    /* Ajusta el tamaño del espacio del logo */
+    .logo-auspiciante {
+        height: 110px;
+    }
+}
+/* Sección de ubicación */
+.ubicacion {
+    padding: 30px 0;
+    background-color: var(--negro);
+}
+
+/* Título y descripción de la sección */
+.titulo-ubicacion {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Título principal */
+.titulo-ubicacion h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Descripción de la ubicación */
+.titulo-ubicacion p {
+    color: #c9c9c9;
+    line-height: 1.6;
+}
+
+/* Cuadro con información del lugar */
+.informacion-ubicacion {
+    height: 100%;
+    padding: 25px;
+    background-color: var(--negro-suave);
+    border: 1px solid var(--vino);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Nombre de la universidad */
+.informacion-ubicacion h3 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Datos del evento */
+.informacion-ubicacion p {
+    color: #c9c9c9;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+/* Resalta las etiquetas de información */
+.informacion-ubicacion strong {
+    color: var(--vino-claro);
+}
+
+/* Botón para abrir Google Maps */
+.boton-ubicacion {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 18px;
+    background-color: var(--vino);
+    border: 1px solid var(--vino);
+    border-radius: 5px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+/* Efecto al pasar el cursor por el botón */
+.boton-ubicacion:hover {
+    background-color: transparent;
+    border-color: var(--vino-claro);
+    color: var(--vino-claro);
+}
+
+/* Contenedor del mapa */
+.mapa-ubicacion {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 2px solid var(--vino);
+    border-radius: 10px;
+}
+
+/* Ajustes del mapa de Google */
+.mapa-ubicacion iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border: 0;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767px) {
+
+    /* Reduce el tamaño del título */
+    .titulo-ubicacion h2 {
+        font-size: 27px;
+    }
+
+    /* Reduce el espacio interior de la información */
+    .informacion-ubicacion {
+        padding: 18px;
+    }
+
+    /* Reduce la altura del mapa en celulares */
+    .mapa-ubicacion iframe {
+        min-height: 320px;
+    }
+}
+/* Sección de inscripción */
+.inscripcion {
+    padding: 30px 0;
+    background-color: var(--negro-suave);
+}
+
+/* Título y descripción de la sección */
+.titulo-inscripcion {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Título principal */
+.titulo-inscripcion h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Descripción de la sección */
+.titulo-inscripcion p {
+    color: #c9c9c9;
+    line-height: 1.6;
+}
+
+/* Espacio destinado al formulario */
+.formulario-inscripcion {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: var(--negro);
+    border: 1px solid var(--vino);
+    border-radius: 10px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767px) {
+
+    /* Reduce el tamaño del título en celulares */
+    .titulo-inscripcion h2 {
+        font-size: 27px;
+    }
+
+    /* Reduce el espacio interior */
+    .formulario-inscripcion {
+        padding: 18px;
+    }
+}
+/* Pie de página del sitio web */
+.pie-pagina {
+    padding: 10px 0;
+    background-color: var(--negro-suave);
+    border-top: 2px solid var(--vino);
+}
+
+/* Título del evento */
+.informacion-footer h2 {
+    color: var(--vino-claro);
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+/* Descripción del evento */
+.informacion-footer p {
+    color: #c9c9c9;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Título de redes */
+.redes-footer h3 {
+    color: var(--texto);
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+/* Lista de redes */
+.redes-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 28px;
+}
+
+/* Cada red sin margen inferior (el espacio lo da gap) */
+.redes-footer li {
+    margin-bottom: 0;
+}
+
+/* Redes sociales */
+.red-social {
+    display: inline-block;
+    color: #c9c9c9;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.red-social .bi {
+    font-size: 1.25rem;
+    margin-right: 6px;
+    vertical-align: middle;
+    transition: filter 0.3s;
+}
+
+/* Color propio de cada red */
+.red-instagram .bi {
+    display: inline-block;
+    background: linear-gradient(45deg, #7b2fbf, #c13584, #fcaf45);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Facebook */
+.red-facebook .bi { color: #2f6fe0; }
+
+/* TikTok: morado oscuro con borde blanco */
+.red-tiktok .bi {
+    color: #3b1470;
+    -webkit-text-stroke: 1px #ffffff;
+}
+
+/* Hover y foco en redes */
+.red-social:hover,
+.red-social:focus-visible {
+    color: var(--texto);
+}
+
+.red-social:hover .bi,
+.red-social:focus-visible .bi {
+    filter: drop-shadow(0 0 6px currentColor);
+}
+
+/* Aviso de enlaces demostrativos */
+.aviso-redes {
+    color: #c9c9c9;
+    font-size: 12px;
+    margin: 10px 0 0;
+}
+
+/* Línea divisoria del pie de página */
+.linea-footer {
+    border: 0;
+    border-top: 1px solid var(--vino);
+    opacity: 0.6;
+    margin: 25px 0 15px;
+}
+
+/* Texto de derechos reservados */
+.derechos-footer {
+    text-align: center;
+}
+
+/* Párrafo de derechos reservados */
+.derechos-footer p {
+    color: #c9c9c9;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+/* Base móvil (375 px): todo centrado y apilado */
+.informacion-footer,
+.redes-footer {
+    text-align: center;
+}
+
+/* Escritorio (lg, desde 992 px): distribución horizontal */
+@media (min-width: 992px) {
+
+    /* Alinea las columnas a la izquierda */
+    .informacion-footer,
+    .redes-footer {
+        text-align: left;
+    }
+    .redes-footer ul {
+        justify-content: flex-start;
+    }
+
+    /* Tamaño del nombre del evento en escritorio */
+    .informacion-footer h2 {
+        font-size: 28px;
+    }
+
+    /* Tamaño del título de redes en escritorio */
+    .redes-footer h3 {
+        font-size: 20px;
+    }
+}
